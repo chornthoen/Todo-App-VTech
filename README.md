@@ -1,9 +1,14 @@
 # flutter_application
 
 A new Flutter project.
+Todo App :
+ - Using Firestore Database
+ - Create, Get, Update, Delete, and Filter by status "Mark as Complete”/“Mark as Incomplete"
 
 ## Getting Started
 ![cover](https://github.com/user-attachments/assets/a4704889-b1e4-40d0-b015-3b535ff2a50a)
+
+
 
 This project is a starting point for a Flutter application.
 
