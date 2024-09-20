@@ -1,0 +1,31 @@
+name: flutter_application
+description: "A new Flutter project."
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.2
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  intl: ^0.19.0
+  go_router: ^14.2.7
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+  firebase_core: ^3.5.0
+  cloud_firestore: ^5.4.2
+  random_string: ^2.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+
