@@ -14,6 +14,10 @@ class TodoRepository {
     await _todoService.updateTodo(id, todo);
   }
 
+  Future<void> updateTodoMark(String id, TodoModel todo) async {
+    await _todoService.updateTodoMark(id, todo);
+  }
+
   Future<void> deleteTodo(String id) async {
     await _todoService.deleteTodo(id);
   }

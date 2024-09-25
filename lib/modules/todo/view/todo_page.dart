@@ -5,6 +5,7 @@ import 'package:flutter_application/component/spacing/app_spacing.dart';
 import 'package:flutter_application/component/widgets/custom_time.dart';
 import 'package:flutter_application/data/bloc/delete/delete_bloc.dart';
 import 'package:flutter_application/data/bloc/update/update_bloc.dart';
+import 'package:flutter_application/data/bloc/update_by_mark/update_by_mark_bloc.dart';
 import 'package:flutter_application/data/data.dart';
 import 'package:flutter_application/modules/todo/view/edit_todo_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,6 +65,24 @@ class _TodoViewState extends State<TodoView> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(state.message),
+                ),
+              );
+            }
+          },
+        ),
+        BlocListener<UpdateByMarkBloc, UpdateByMarkState>(
+          listener: (context, state) {
+            if (state is UpdateLoadedMark) {
+              context.read<TodoBloc>().add(LoadTodos());
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Todo updated successfully'),
+                ),
+              );
+            } else if (state is UpdateMarkError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.error),
                 ),
               );
             }
@@ -228,6 +247,6 @@ class _TodoViewState extends State<TodoView> {
   }
 
   void onMarkAsCompleted(String id, TodoModel todo) {
-    context.read<UpdateBloc>().add(Updated(id, todo));
+    context.read<UpdateByMarkBloc>().add(UpdatedMark(id, todo));
   }
 }

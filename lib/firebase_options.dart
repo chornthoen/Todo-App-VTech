@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutter-application-53f8a.appspot.com',
     iosBundleId: 'com.chorn.flutterApplication',
   );
+
 }

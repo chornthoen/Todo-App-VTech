@@ -46,6 +46,22 @@ class TodoService {
     }
   }
 
+  Future<void> updateTodoMark(String id, TodoModel todo) async {
+    try {
+      QuerySnapshot snapshot = await _todosCollection
+          .where(
+            'id',
+            isEqualTo: id,
+          )
+          .get();
+      for (DocumentSnapshot doc in snapshot.docs) {
+        await doc.reference.update(todo.toMap());
+      }
+    } catch (e) {
+      print('Failed to update document: $e');
+    }
+  }
+
   Future<void> deleteTodo(String id) async {
     try {
       QuerySnapshot snapshot = await _todosCollection

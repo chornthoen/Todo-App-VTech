@@ -5,6 +5,7 @@ import 'package:flutter_application/data/bloc/craete/create_bloc.dart';
 import 'package:flutter_application/data/bloc/delete/delete_bloc.dart';
 import 'package:flutter_application/data/bloc/todo/todo_bloc.dart';
 import 'package:flutter_application/data/bloc/update/update_bloc.dart';
+import 'package:flutter_application/data/bloc/update_by_mark/update_by_mark_bloc.dart';
 import 'package:flutter_application/data/repository/todo_repository.dart';
 import 'package:flutter_application/firebase_options.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,6 +47,9 @@ class AppView extends StatelessWidget {
           ),
           BlocProvider<DeleteBloc>(
             create: (context) => DeleteBloc(todoRepository),
+          ),
+          BlocProvider<UpdateByMarkBloc>(
+            create: (context) => UpdateByMarkBloc(todoRepository),
           ),
         ],
         child: const MyApp(),
